@@ -1,0 +1,7 @@
+{
+  "title": "My Preset",
+  "duration": 5,
+  "layers": [
+    { "id": "l1", "name": "Bg", "imgSrc": "https://link-gambar.com/bg.jpg", "posX": 0, "posY": 0, "scale": 1, "startTime": 0, "endTime": 5, "brightness": 100, "contrast": 100, "saturate": 100, "transition": "fade" }
+  ]
+}
