@@ -1,7 +1,48 @@
 {
-  "title": "My Preset",
-  "duration": 5,
+  "title": "Cinematic Glow Blue",
+  "duration": 5.0,
   "layers": [
-    { "id": "l1", "name": "Bg", "imgSrc": "https://link-gambar.com/bg.jpg", "posX": 0, "posY": 0, "scale": 1, "startTime": 0, "endTime": 5, "brightness": 100, "contrast": 100, "saturate": 100, "transition": "fade" }
+    {
+      "id": "l1",
+      "name": "Background Blur",
+      "imgSrc": "https://picsum.photos/id/1018/1080/1920",
+      "posX": 0,
+      "posY": 0,
+      "scale": 1.1,
+      "startTime": 0,
+      "endTime": 5.0,
+      "brightness": 90,
+      "contrast": 110,
+      "saturate": 80,
+      "transition": "fade"
+    },
+    {
+      "id": "l2",
+      "name": "Foto Utama",
+      "imgSrc": "https://picsum.photos/id/1025/1080/1920",
+      "posX": 0,
+      "posY": -50,
+      "scale": 0.9,
+      "startTime": 0.5,
+      "endTime": 4.5,
+      "brightness": 105,
+      "contrast": 105,
+      "saturate": 120,
+      "transition": "zoom"
+    },
+    {
+      "id": "l3",
+      "name": "Overlay Light",
+      "imgSrc": "https://picsum.photos/id/1039/1080/1920",
+      "posX": 0,
+      "posY": 0,
+      "scale": 1.0,
+      "startTime": 1.0,
+      "endTime": 4.0,
+      "brightness": 130,
+      "contrast": 100,
+      "saturate": 100,
+      "transition": "slide"
+    }
   ]
 }
