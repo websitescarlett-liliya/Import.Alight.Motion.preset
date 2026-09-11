@@ -1,0 +1,61 @@
+:root {
+  --bg-dark: #090a0f;
+  --bg-card: #12141d;
+  --bg-input: #1b1e2b;
+  --border-color: #262a3d;
+  --accent-blue: #0088ff;
+  --accent-blue-hover: #0066cc;
+  --text-main: #ffffff;
+  --text-muted: #8a8fA8;
+  --success-green: #00e676;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg-dark); color: var(--text-main); font-family: sans-serif; height: 100vh; overflow: hidden; }
+
+.app-container { display: flex; flex-direction: column; height: 100vh; }
+.app-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: var(--bg-card); border-bottom: 1px solid var(--border-color); }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; }
+.icon-accent { color: var(--accent-blue); }
+.app-workspace { display: flex; flex: 1; overflow: hidden; }
+@media (max-width: 900px) {.app-workspace { flex-direction: column; overflow-y: auto; } }
+
+.preview-section { flex: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; border-right: 1px solid var(--border-color); }
+.canvas-wrapper { position: relative; width: 360px; height: 640px; border-radius: 12px; overflow: hidden; border: 2px solid var(--border-color); background: #000; box-shadow: 0 0 30px rgba(0,136,255,0.2); }
+#preview-canvas { width: 100%; height: 100%; display: block; }
+.canvas-overlay-info { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); padding: 4px 8px; font-size: 0.7rem; border-radius: 4px; color: var(--accent-blue); }
+
+.playback-controls { display: flex; align-items: center; gap: 10px; margin-top: 15px; background: var(--bg-card); padding: 10px 15px; border-radius: 30px; width: 90%; max-width: 400px; }
+#timeline-slider { flex: 1; accent-color: var(--accent-blue); }
+.time-display { font-family: monospace; font-size: 0.8rem; color: var(--text-muted); min-width: 110px; }
+
+.inspector-section { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.panel-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; }
+.panel-title { font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: var(--accent-blue); }
+.text-muted { color: var(--text-muted); font-size: 0.85rem; }
+
+.layer-list { display: flex; flex-direction: column; gap: 8px; }
+.layer-item { display: flex; align-items: center; justify-content: space-between; padding: 8px; background: var(--bg-input); border-radius: 6px; cursor: pointer; border: 1px solid transparent; }
+.layer-item.active { border-color: var(--accent-blue); }
+.layer-info { display: flex; align-items: center; gap: 8px; }
+.layer-thumb { width: 36px; height: 36px; border-radius: 4px; object-fit: cover; background: #000; }
+.layer-title { font-size: 0.8rem; }
+
+.control-group { margin-bottom: 10px; }
+.control-group label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; display: block; }
+.flex-row { display: flex; gap: 8px; }
+input[type="range"] { width: 100%; accent-color: var(--accent-blue); }
+input[type="number"], select { width: 100%; padding: 6px; background: var(--bg-input); border: 1px solid var(--border-color); border-radius: 6px; color: #fff; }
+
+.btn { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; transition: 0.2s; }
+.btn-primary { background: var(--accent-blue); color: #fff; }
+.btn-primary:hover { background: var(--accent-blue-hover); }
+.btn-outline { background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); }
+.btn-success { background: var(--success-green); color: #000; text-decoration: none; }
+.btn-icon { background: transparent; border: none; color: #fff; padding: 6px; border-radius: 50%; }
+.full-width { width: 100%; }
+.hidden { display: none!important; }
+
+.progress-bar-container { width: 100%; height: 22px; background: var(--bg-input); border-radius: 10px; position: relative; margin-top: 8px; }
+.progress-bar-fill { height: 100%; width: 0%; background: var(--accent-blue); transition: width 0.1s; }
+.progress-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 0.7rem; font-weight: bold; }
