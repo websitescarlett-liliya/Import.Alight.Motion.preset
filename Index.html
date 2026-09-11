@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preset Importer - Alight Motion Style</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <i data-lucide="layers" class="icon-accent"></i>
+        <span>Preset Importer</span>
+      </div>
+      <div class="header-actions">
+        <button id="btn-import-link" class="btn btn-outline">
+          <i data-lucide="link"></i> Import Dari Link
+        </button>
+        <label for="preset-file-input" class="btn btn-outline">
+          <i data-lucide="file-up"></i> Import File
+        </label>
+        <input type="file" id="preset-file-input" accept=".json" hidden>
+      </div>
+    </header>
+
+    <main class="app-workspace">
+      <section class="preview-section">
+        <div class="canvas-wrapper">
+          <canvas id="preview-canvas" width="720" height="1280"></canvas>
+          <div class="canvas-overlay-info" id="resolution-badge">2990p @ 1020FPS</div>
+        </div>
+
+        <div class="playback-controls">
+          <button id="btn-play" class="btn-icon"><i data-lucide="play"></i></button>
+          <input type="range" id="timeline-slider" min="0" max="5" step="0.01" value="0">
+          <div class="time-display" id="time-display">00:00.00 / 00:05.00</div>
+        </div>
+      </section>
+
+      <section class="inspector-section">
+        <div class="panel-card">
+          <h3 class="panel-title"><i data-lucide="sliders"></i> Active Preset</h3>
+          <p id="preset-title" class="text-muted">Belum ada preset</p>
+        </div>
+
+        <div class="panel-card">
+          <h3 class="panel-title"><i data-lucide="image"></i> Placeholders & Media</h3>
+          <div class="layer-list" id="layer-list"></div>
+          <input type="file" id="gallery-picker" accept="image/*" hidden>
+        </div>
+
+        <div class="panel-card" id="adjustment-panel">
+          <h3 class="panel-title"><i data-lucide="move"></i> Layer Adjustments</h3>
+
+          <div class="control-group">
+            <label>Position X & Y</label>
+            <div class="flex-row">
+              <input type="range" id="pos-x" min="-360" max="360" value="0">
+              <input type="range" id="pos-y" min="-640" max="640" value="0">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Scale</label>
+            <input type="range" id="scale-slider" min="0.1" max="3" step="0.05" value="1">
+          </div>
+
+          <div class="control-group">
+            <label>Timing</label>
+            <div class="flex-row">
+              <input type="number" id="time-start" min="0" max="60" step="0.1" value="0">
+              <input type="number" id="time-end" min="0.5" max="60" step="0.1" value="5">
+            </div>
+          </div>
+
+          <h3 class="panel-title mt-15"><i data-lucide="wand2"></i> Color & Effects</h3>
+          <div class="control-group"><label>Brightness</label><input type="range" id="effect-brightness" min="50" max="150" value="100"></div>
+          <div class="control-group"><label>Contrast</label><input type="range" id="effect-contrast" min="50" max="150" value="100"></div>
+          <div class="control-group"><label>Saturate</label><input type="range" id="effect-saturate" min="0" max="200" value="100"></div>
+          <div class="control-group">
+            <label>Transition</label>
+            <select id="effect-transition" class="select-input">
+              <option value="fade">Fade</option>
+              <option value="zoom">Zoom</option>
+              <option value="slide">Slide</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panel-card workflow-card">
+          <h3 class="panel-title"><i data-lucide="export"></i> Workflow</h3>
+          <button id="btn-use-preset" class="btn btn-primary full-width hidden">
+            <i data-lucide="check-circle"></i> Gunakan Preset
+          </button>
+          <button id="btn-export" class="btn btn-primary full-width hidden">
+            <i data-lucide="cpu"></i> Ekspor 2990p @ 1020FPS
+          </button>
+          <div id="export-progress-container" class="progress-bar-container hidden">
+            <div class="progress-bar-fill" id="export-progress-fill"></div>
+            <span class="progress-text" id="export-progress-text">Rendering 0%...</span>
+          </div>
+          <a id="btn-save" class="btn btn-success full-width hidden" download="hasil_preset.png">
+            <i data-lucide="download"></i> Simpan ke Galeri
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+  </html>
